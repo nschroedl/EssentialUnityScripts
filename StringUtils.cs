@@ -4,7 +4,6 @@ using System.Collections;
 
 public class StringUtils
 {
-
     // lineWrap
     //  Splits string into lines which are _charsPerLine or shorter.
     //
