@@ -1,29 +1,36 @@
-	// lineWrap
-	//  Splits string into lines which are _charsPerLine or shorter.
-	//
-	//  Current word is buffered so that if _charsPerLine is reached in the middle
-	//  of a word the entire word appears on the next line.
-	//
-	//  Note that variable width fonts are not accounted for so it is likely
-	//  you will have to set _charsPerLine much shorter than desired so that lines
-	//  with several capital letters or wide chars wrap correctly.
-	//
-	//  Also takes carriage returns (\n) already in the string into account.
-	//
-	//
-	// Parameters:
-	//  string _str      - string to process
-	//  int _charPerLine - max # of characters per line.
-	//  bool _forceWrap  - if set to true, a continuous string of characters with no spaces
-	//						word will be forced to wrap to _charsPerLine 
-	//						if set to false, word will stay intact and violate _charsPerLine
-	//
-	// TODO:
-	//	Don't count the space at end of a line.
-	//  _forceWrap can cause somewhat odd behavior as it is a very simple implementation.
-	//
-	//  Provided by typeRice - June 12, 2009
-	public static string lineWrap( string _str, int _charsPerLine, bool _forceWrap )
+
+using UnityEngine;
+using System.Collections;
+
+public class StringUtils
+{
+
+    // lineWrap
+    //  Splits string into lines which are _charsPerLine or shorter.
+    //
+    //  Current word is buffered so that if _charsPerLine is reached in the middle
+    //  of a word the entire word appears on the next line.
+    //
+    //  Note that variable width fonts are not accounted for so it is likely
+    //  you will have to set _charsPerLine much shorter than desired so that lines
+    //  with several capital letters or wide chars wrap correctly.
+    //
+    //  Also takes carriage returns (\n) already in the string into account.
+    //
+    //
+    // Parameters:
+    //  string _str      - string to process
+    //  int _charPerLine - max # of characters per line.
+    //  bool _forceWrap  - if set to true, a continuous string of characters with no spaces
+    //						word will be forced to wrap to _charsPerLine 
+    //						if set to false, word will stay intact and violate _charsPerLine
+    //
+    // TODO:
+    //	Don't count the space at end of a line.
+    //  _forceWrap can cause somewhat odd behavior as it is a very simple implementation.
+    //
+    //  Provided by typeRice - June 12, 2009
+    public static string lineWrap( string _str, int _charsPerLine, bool _forceWrap )
 	{
 		if( _str.Length < _charsPerLine )
 			return _str;
@@ -79,3 +86,4 @@
 		result += buf;							// add any remaining characters in the buffer
 		return result;
 	}
+}
