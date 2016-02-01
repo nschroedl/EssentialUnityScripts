@@ -1,3 +1,32 @@
+	//Returns the value in string input between startFlag and endFlag, beginning at startPos.
+	//
+	//var value : String = GetValue ("[12]gibberish[17]gibberish", "[", "]", 6); // returns 17
+	//
+	//function GetValue(input : String, startFlag : String, endFlag : String) : String
+	//Description
+	//
+	//Returns the value in string input between startFlag and endFlag.
+	//
+	//var value : String = GetValue ("[12]gibberish[17]gibberish", "[", "]"); // returns 12
+
+function GetValue(input : String, startFlag : String, endFlag : String, startPos : int) {
+	startIndex = input.IndexOf(startFlag,startPos);
+	endIndex = input.IndexOf(endFlag,startPos);
+	valueLength = endIndex - startIndex - 1;
+	print (input);
+	output = input.Substring(startIndex+1,valueLength);
+	return output;
+};
+ 
+function GetValue(input : String, startFlag : String, endFlag : String) {
+	startIndex = input.IndexOf(startFlag);
+	endIndex = input.IndexOf(endFlag);
+	valueLength = endIndex - startIndex - 1;
+	print (input);
+	output = input.Substring(startIndex+1,valueLength);
+	return output;
+};
+	
 	// lineWrap
 	//  Splits string into lines which are _charsPerLine or shorter.
 	//
