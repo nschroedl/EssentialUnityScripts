@@ -53,7 +53,9 @@ public class ProgressBar : MonoBehaviour {
             float size = maxScale * percent;
 			
 			//Reduces the overall size of the bar based on the percentage
-            transform.localScale = new Vector3(size, transform.localScale.y, transform.localScale.z);			
+            transform.localScale = new Vector3(size, transform.localScale.y, transform.localScale.z);		
+
+			//Maintains the original xPosition so the bar doesn't drift as it is resized
             transform.position = new Vector3(xStartPos + ((maxScale - size)/2), transform.position.y, transform.position.z);
         }
     }
