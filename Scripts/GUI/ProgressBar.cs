@@ -26,16 +26,18 @@ public class ProgressBar : MonoBehaviour {
     }
 	
 	public void RestartProgressBarMax(){		
-		gameCount = maxCount;	
+		gameCount = maxCount;			
+		transform.localScale = new Vector3(maxScale, transform.localScale.y, transform.localScale.z);
 	}
 	
 	public void RestartProgressBarMin(){		
 		gameCount = 0;	
+		transform.localScale = new Vector3(maxScale, transform.localScale.y, transform.localScale.z);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (isCountDownBar && gameCount > 0)
+        if (isCountDownBar && gameCount >= 0)
         {
 			if(isBarCountingDown){
 				gameCount += -Time.deltaTime;
@@ -46,7 +48,7 @@ public class ProgressBar : MonoBehaviour {
         }
 	}
 	
-    void SetProgressBar(float currentCount)
+    public void SetProgressBar(float currentCount)
     {
         if(currentCount <= maxCount && currentCount > 0) { 
             float percent = (currentCount / maxCount);
